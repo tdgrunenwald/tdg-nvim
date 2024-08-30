@@ -2,8 +2,11 @@ require("tdg.set")
 require("tdg.remap")
 require("tdg.lazy_init")
 
+LSP_GROUP = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true})
+ -- FMT_GROUP = vim.api.nvim_create_augroup('format_group', {clear = true})
+
 vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true}),
+	group = LSP_GROUP,
 	callback = function(e)
 		local opts = { buffer = e.buf }
 		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -18,3 +21,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
 	end
 })
+
+ -- vim.api.nvim_create_autocmd('FormatOnSave', {
+ -- 	group = FMT_GROUP,
+ -- 	callback = function(e)
+ -- 	end
+ -- })
