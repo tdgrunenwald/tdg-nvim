@@ -1,6 +1,6 @@
-require("tdg.set")
-require("tdg.remap")
-require("tdg.lazy_init")
+require("tdg-nvim.set")
+require("tdg-nvim.remap")
+require("tdg-nvim.lazy_init")
 
 LSP_GROUP = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true})
  -- FMT_GROUP = vim.api.nvim_create_augroup('format_group', {clear = true})

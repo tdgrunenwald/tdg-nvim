@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = "tdg.lazy",
+	spec = "tdg-nvim.lazy",
 	checker = { enabled = true },
 	change_detection = { notify = false },
 })
