@@ -28,11 +28,28 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"clangd",
+				"pylsp",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup {
 						capabilities = capabilities
+					}
+				end,
+
+				["pylsp"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.pylsp.setup {
+						capabilities = capabilities,
+						settings = {
+							pylsp = {
+								plugins = {
+									pycodestyle = {
+										ignore = {"W191"},
+									}
+								}
+							}
+						}
 					}
 				end,
 
