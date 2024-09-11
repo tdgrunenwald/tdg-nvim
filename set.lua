@@ -4,11 +4,13 @@ vim.opt.relativenumber = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.tabstop = 5
+vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
+vim.opt.expandtab = false
 
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 100
 vim.opt.colorcolumn = "120"
 vim.opt.textwidth = 120
 
