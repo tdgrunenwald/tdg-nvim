@@ -15,3 +15,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Fix common typos
 vim.keymap.set("n", ":Q", ":q")
 vim.keymap.set("n", ":W", ":w")
+
+-- Shortcut to swap to most recent buffer
+vim.keymap.set("n", "<leader>bs", ":b#<CR>")
+
