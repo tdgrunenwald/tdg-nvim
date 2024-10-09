@@ -8,6 +8,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
 vim.opt.expandtab = false
 
+vim.opt.list = true
+vim.opt.listchars = "tab:→ ,lead:∙,trail:∙,multispace:∙"
+
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 100
