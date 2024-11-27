@@ -29,11 +29,37 @@ return {
 				"lua_ls",
 				"clangd",
 				"pylsp",
+				"ruff",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup {
 						capabilities = capabilities
+					}
+				end,
+
+				["ruff"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.ruff.setup {
+						capabilities = capabilities,
+						init_options = {
+							settings = {
+								lint = {
+									select = {
+										"E", -- pycodestyle errors
+										"W", -- pycodestyle warnings
+										"I", -- isort
+										"F", -- pyflakes
+										"B", -- flake8-bugbear
+										"C4", -- flake8-comprehensions
+										"Q" -- flake8-quotes
+									},
+									ignore = {
+										"W191", -- tabs are the objectively correct way to indent code
+									},
+								},
+							}
+						}
 					}
 				end,
 
@@ -45,8 +71,21 @@ return {
 							pylsp = {
 								plugins = {
 									pycodestyle = {
-										ignore = {"W191"},
-									}
+										enabled = false,
+										-- ignore = {"W191"},
+									},
+									flake8 = {
+										enabled = false,
+									},
+									pylint = {
+										enabled = false,
+									},
+									pyflakes = {
+										enabled = false,
+									},
+									mccabe = {
+										enabled = false,
+									},
 								}
 							}
 						}
